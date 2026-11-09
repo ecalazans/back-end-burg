@@ -1,4 +1,10 @@
-# 🍔 Casa do Hambúrguer — Backend
+<div align="center">
+
+# 🍔 Casa do Hambúrguer
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=F59E0B&center=true&vCenter=true&width=435&lines=API+REST+para+hamburgueria;Node.js+%7C+TypeScript;Express+%7C+Prisma+%7C+PostgreSQL" alt="Texto animado">
+
+</div>
 
 API REST desenvolvida para uma aplicação de hamburgueria, com funcionalidades de autenticação de usuários, gerenciamento de produtos e controle de carrinho de compras.
 
