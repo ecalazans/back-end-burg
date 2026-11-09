@@ -1,82 +1,92 @@
-<div align="center">
-
 # 🍔 Casa do Hambúrguer
+
+<div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=F59E0B&center=true&vCenter=true&width=435&lines=API+REST+para+hamburgueria;Node.js+%7C+TypeScript;Express+%7C+Prisma+%7C+PostgreSQL" alt="Texto animado">
 
 </div>
 
+---
+
+## 📌 Sobre o projeto
+
 API REST desenvolvida para uma aplicação de hamburgueria, com funcionalidades de autenticação de usuários, gerenciamento de produtos e controle de carrinho de compras.
 
-O projeto foi desenvolvido utilizando **Node.js, Express, TypeScript, Prisma ORM e PostgreSQL**, aplicando conceitos de desenvolvimento backend, integração com banco de dados, autenticação e organização de rotas e controllers.
+O projeto foi desenvolvido utilizando Node.js, Express, TypeScript, Prisma ORM e PostgreSQL, aplicando conceitos de desenvolvimento back-end, integração com banco de dados, autenticação e organização de rotas e controllers.
+
+## 🛠️ Tecnologias
 
 <div align="center">
 
-### 🛠️ Tecnologias
-
-[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,express,postgres,prisma&perline=5)](https://skillicons.dev)
+[![Tecnologias](https://skillicons.dev/icons?i=nodejs,ts,express,postgres,prisma&perline=5)](https://skillicons.dev)
 
 </div>
 
 ## 📋 Funcionalidades
 
-### Usuários e autenticação
+### 👤 Usuários e autenticação
 
 - Cadastro de usuários.
 - Login com e-mail e senha.
 - Criptografia de senhas utilizando Bcrypt.
 - Autenticação utilizando JWT.
-- Gerenciamento de sessão através de cookies.
-- Consulta dos dados do usuário autenticado.
+- Verificação de sessão do usuário.
 - Logout.
+
+### 🍔 Produtos
+
+- Listagem de produtos cadastrados.
+- Exclusão de produtos.
+- Controle de acesso administrativo para exclusão.
+
+### 🛒 Carrinho de compras
+
+- Listagem dos itens do carrinho.
+- Adição de produtos ao carrinho.
+- Associação dos itens ao usuário autenticado.
+- Controle de quantidade dos produtos.
+- Incremento da quantidade quando o produto já existe no carrinho.
+
+## 🔐 Autenticação
+
+A aplicação utiliza JWT para autenticação dos usuários.
+
+As rotas protegidas utilizam middleware para validar a autenticação e identificar o usuário responsável pela requisição.
+
+O sistema também possui controle de acesso administrativo para operações específicas, como a exclusão de produtos.
+
+## 📡 Endpoints
+
+### Usuários
+
+| Método | Endpoint    | Descrição                     |
+| ------ | ----------- | ----------------------------- |
+| POST   | `/register` | Cadastro de usuário           |
+| POST   | `/login`    | Autenticação                  |
+| GET    | `/me`       | Consultar usuário autenticado |
+| POST   | `/logout`   | Encerrar sessão               |
 
 ### Produtos
 
-- Consulta dos produtos cadastrados.
-- Exclusão de produtos.
-- Verificação de autenticação e autorização para operações administrativas.
+| Método | Endpoint              | Descrição       |
+| ------ | --------------------- | --------------- |
+| GET    | `/get-products`       | Listar produtos |
+| DELETE | `/delete-product/:id` | Excluir produto |
 
-### Carrinho de compras
+### Carrinho
 
-- Consulta dos itens do carrinho do usuário autenticado.
-- Adição de produtos ao carrinho.
-- Incremento automático da quantidade quando o produto já existe no carrinho.
-- Relacionamento entre usuários, produtos e itens do carrinho.
+| Método | Endpoint            | Descrição                     |
+| ------ | ------------------- | ----------------------------- |
+| GET    | `/get-cart-items`   | Listar itens do carrinho      |
+| POST   | `/create-cart-item` | Adicionar produto ao carrinho |
 
-## 🗂️ Estrutura do projeto
-
-```text
-back-end-burg/
-├── generated/
-├── prisma/
-│   ├── migrations/
-│   └── schema.prisma
-├── src/
-│   ├── controller/
-│   │   ├── cartItem-controller.ts
-│   │   ├── product-controller.ts
-│   │   └── user-controller.ts
-│   ├── middlewares/
-│   │   └── auth.ts
-│   ├── db.ts
-│   └── routes.ts
-├── .env
-├── .gitignore
-├── index.ts
-├── package.json
-├── prisma.config.ts
-└── tsconfig.json
-```
-
-## 🛠️ Instalação e execução
+## ⚙️ Como executar o projeto
 
 ### Pré-requisitos
 
-Antes de começar, você precisará ter instalado:
-
 - Node.js
-- npm
 - PostgreSQL
+- npm
 
 ### 1. Clone o repositório
 
@@ -98,131 +108,49 @@ npm install
 
 ### 4. Configure as variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto.
+Crie um arquivo `.env` na raiz do projeto e configure:
 
 ```env
-DATABASE_URL="postgresql://USUARIO:SENHA@localhost:5432/NOME_DO_BANCO?schema=public"
-
-JWT_SECRET="SUA_CHAVE_SECRETA"
+DATABASE_URL="sua_url_do_postgresql"
+JWT_SECRET="sua_chave_secreta"
 ```
 
-Substitua os valores pelas configurações do seu ambiente PostgreSQL.
+Utilize suas próprias credenciais e mantenha o arquivo `.env` fora do repositório.
 
-**Importante:** Não compartilhe suas credenciais ou publique o arquivo `.env` no GitHub.
-
-### 5. Configure o banco de dados
-
-Execute as migrations do Prisma:
-
-```bash
-npx prisma migrate dev
-```
-
-### 6. Inicie a aplicação
+### 5. Execute o servidor
 
 ```bash
 npm run dev
 ```
 
-A API estará disponível na porta configurada no projeto.
+O servidor será iniciado utilizando o script de desenvolvimento configurado no projeto.
 
-## 🔗 Rotas da API
+## 🗄️ Banco de dados
 
-A API possui rotas para autenticação de usuários, consulta de produtos e gerenciamento do carrinho de compras.
+O projeto utiliza PostgreSQL para armazenamento dos dados e Prisma ORM para comunicação com o banco.
 
-| Método | Endpoint              | Descrição                       |
-| ------ | --------------------- | ------------------------------- |
-| POST   | `/login`              | Autenticação do usuário         |
-| POST   | `/register`           | Cadastro de usuário             |
-| GET    | `/me`                 | Consulta do usuário autenticado |
-| POST   | `/logout`             | Encerramento da sessão          |
-| GET    | `/get-products`       | Consulta dos produtos           |
-| DELETE | `/delete-product/:id` | Exclusão de produto             |
-| GET    | `/get-cart-items`     | Consulta do carrinho            |
-| POST   | `/create-cart-item`   | Adição de produto ao carrinho   |
+A estrutura possui os seguintes modelos:
 
-As rotas protegidas utilizam middleware de autenticação para validar o usuário e controlar o acesso às funcionalidades que exigem autorização.
-
-## 🗄️ Modelagem do banco de dados
-
-O projeto utiliza PostgreSQL com Prisma ORM para gerenciamento dos dados.
-
-### User
-
-Armazena os dados dos usuários cadastrados.
-
-Principais campos:
-
-- `id`
-- `name`
-- `email`
-- `password`
-- `cep`
-- `admin`
-
-### Product
-
-Armazena os produtos disponíveis na aplicação.
-
-Principais campos:
-
-- `id`
-- `name`
-- `description`
-- `price`
-- `category`
-- `img`
-- `createdAt`
-
-### CartItem
-
-Representa os produtos adicionados ao carrinho de cada usuário.
-
-Principais campos:
-
-- `id`
-- `quantity`
-- `productId`
-- `userId`
-
-### Relacionamentos
-
-- Um usuário pode possuir vários itens no carrinho.
-- Um produto pode estar associado a vários itens de carrinho.
-- Cada item do carrinho está relacionado a um usuário e a um produto.
-
-## 🔐 Autenticação
-
-A autenticação utiliza JWT para identificar usuários e proteger rotas.
-
-Durante o login, as credenciais são verificadas e a senha é comparada com o hash armazenado no banco de dados.
-
-Após a autenticação, o token é enviado através de um cookie, utilizado pelo middleware para identificar o usuário nas requisições protegidas.
-
-O sistema também possui verificação de permissões administrativas para determinadas operações.
+- **User:** informações dos usuários e autenticação.
+- **Product:** informações dos produtos.
+- **CartItem:** relacionamento entre usuários, produtos e quantidades no carrinho.
 
 ## 📚 Aprendizados
 
-Este projeto faz parte dos meus estudos em desenvolvimento web Full Stack e tem como objetivo consolidar conhecimentos em:
+Durante o desenvolvimento, foram praticados conceitos de:
 
 - Desenvolvimento de APIs REST.
-- Node.js e Express.
-- TypeScript.
-- Integração com PostgreSQL.
-- Modelagem de dados com Prisma ORM.
+- TypeScript no back-end.
+- Organização de controllers e rotas.
 - Autenticação e autorização.
-- Relacionamentos entre entidades.
-- Organização de controllers, rotas e middlewares.
-- Integração entre backend e frontend.
+- Criptografia de senhas.
+- Relacionamentos entre tabelas.
+- Prisma ORM e PostgreSQL.
+- Middleware de autenticação.
+- Manipulação de requisições HTTP.
 
-## 👨‍💻 Autor
+## 👨‍💻 Desenvolvedor
 
-**Erick D. Calazans**
+**Erick Calazans**
 
-Desenvolvedor Web em formação, estudando tecnologias frontend e backend para construção de aplicações Full Stack.
-
-[GitHub](https://github.com/ecalazans)
-
----
-
-Projeto desenvolvido para fins de estudo e aprendizado.
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)](https://github.com/ecalazans)
