@@ -126,7 +126,7 @@ A API estará disponível na porta configurada no projeto.
 
 ## 🔗 Rotas da API
 
-As rotas abaixo foram identificadas no arquivo `routes.ts`.
+A API possui rotas para autenticação de usuários, consulta de produtos e gerenciamento do carrinho de compras.
 
 | Método | Endpoint              | Descrição                       |
 | ------ | --------------------- | ------------------------------- |
@@ -139,7 +139,7 @@ As rotas abaixo foram identificadas no arquivo `routes.ts`.
 | GET    | `/get-cart-items`     | Consulta do carrinho            |
 | POST   | `/create-cart-item`   | Adição de produto ao carrinho   |
 
-As rotas protegidas exigem autenticação através do middleware responsável pela validação do usuário.
+As rotas protegidas utilizam middleware de autenticação para validar o usuário e controlar o acesso às funcionalidades que exigem autorização.
 
 ## 🗄️ Modelagem do banco de dados
 
