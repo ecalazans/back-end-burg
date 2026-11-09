@@ -10,17 +10,13 @@ API REST desenvolvida para uma aplicação de hamburgueria, com funcionalidades 
 
 O projeto foi desenvolvido utilizando **Node.js, Express, TypeScript, Prisma ORM e PostgreSQL**, aplicando conceitos de desenvolvimento backend, integração com banco de dados, autenticação e organização de rotas e controllers.
 
-## 🚀 Tecnologias utilizadas
+<div align="center">
 
-- **Node.js** — Ambiente de execução JavaScript.
-- **Express 5** — Framework para construção da API REST.
-- **TypeScript** — Tipagem estática e organização do código.
-- **PostgreSQL** — Banco de dados relacional.
-- **Prisma ORM** — Modelagem e comunicação com o banco de dados.
-- **JWT (JSON Web Token)** — Autenticação de usuários.
-- **Bcrypt** — Criptografia de senhas.
-- **Cookie Parser** — Leitura de cookies enviados nas requisições.
-- **CORS** — Configuração de comunicação entre aplicações.
+### 🛠️ Tecnologias
+
+[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,express,postgres,prisma&perline=5)](https://skillicons.dev)
+
+</div>
 
 ## 📋 Funcionalidades
 
